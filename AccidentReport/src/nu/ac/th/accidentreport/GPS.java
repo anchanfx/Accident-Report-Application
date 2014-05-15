@@ -7,6 +7,9 @@ import android.location.LocationManager;
 import android.os.Bundle;
 
 public class GPS extends Locator implements LocationListener {
+	private static final long MIN_TIME = 1500;
+	private static final float MIN_DISTANCE = 1;
+	
 	private LocationManager mLocationManager;
 	
 	public GPS(LocatorListener locatorListener, Context context) {
@@ -17,7 +20,7 @@ public class GPS extends Locator implements LocationListener {
 	@Override
 	public void startLocatePosition() {
 		mLocationManager.requestLocationUpdates(
-				LocationManager.GPS_PROVIDER, 1500, 1, this);
+				LocationManager.GPS_PROVIDER, MIN_TIME, MIN_DISTANCE, this);
 	}
 
 	
