@@ -11,6 +11,7 @@ public class MainActivity extends Activity {
 	
 	private TextView mTextView;
 	
+	// Test Comment by GunZ
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
