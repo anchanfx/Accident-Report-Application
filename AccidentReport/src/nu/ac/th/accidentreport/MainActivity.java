@@ -1,7 +1,5 @@
 package nu.ac.th.accidentreport;
 
-import java.util.Date;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -24,8 +22,9 @@ public class MainActivity extends Activity {
 	private void initializeVariables() {
 		createInterfaces();
 		mLocator = new GPS(mLocatorListener, getApplicationContext());
-		mTextView = (TextView)findViewById(R.id.textview);	
 		mReportTask = new ReportTask(new TCP_IP(), mReportTaskListener);
+		
+		mTextView = (TextView)findViewById(R.id.textview);
 	}
 	
 	private void createInterfaces() {
