@@ -8,7 +8,7 @@ public class AccidentReportData {
 	private Date reportDate;
 	
 	public AccidentReportData() {
-		this(null, null, new Date());
+		this(new Position(), new AdditionalInfo(), new Date());
 	}
 
 	public AccidentReportData(Position position, AdditionalInfo additionalInfo,

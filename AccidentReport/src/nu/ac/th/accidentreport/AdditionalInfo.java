@@ -7,8 +7,8 @@ public class AdditionalInfo {
 	private static final String DEFAULT_MESSAGE = "";
 	
 	private AccidentType mAccidentType;
-	private int amountOfInjuredPerson;
-	private int amountOfDeadlyPerson;
+	private int amountOfInjured;
+	private int amountOfDead;
 	private boolean trafficBlocked;
 	private String message;
 			
@@ -17,12 +17,12 @@ public class AdditionalInfo {
 	}
 	
 	public AdditionalInfo(AccidentType accidentType,
-			int amountOfInjuredPerson, int amountOfDeadlyPerson,
+			int amountOfInjured, int amountOfDead,
 			boolean trafficBlocked, String message) {
 		super();
 		mAccidentType = accidentType;
-		this.amountOfInjuredPerson = amountOfInjuredPerson;
-		this.amountOfDeadlyPerson = amountOfDeadlyPerson;
+		this.amountOfInjured = amountOfInjured;
+		this.amountOfDead = amountOfDead;
 		this.trafficBlocked = trafficBlocked;
 		this.message = message;
 	}
@@ -33,17 +33,17 @@ public class AdditionalInfo {
 	public void setAccidentType(AccidentType accidentType) {
 		mAccidentType = accidentType;
 	}
-	public int getAmountOfInjuredPerson() {
-		return amountOfInjuredPerson;
+	public int getAmountOfInjured() {
+		return amountOfInjured;
 	}
-	public void setAmountOfInjuredPerson(int amountOfInjuredPerson) {
-		this.amountOfInjuredPerson = amountOfInjuredPerson;
+	public void setAmountOfInjured(int amountOfInjured) {
+		this.amountOfInjured = amountOfInjured;
 	}
-	public int getAmountOfDeadlyPerson() {
-		return amountOfDeadlyPerson;
+	public int getAmountOfDead() {
+		return amountOfDead;
 	}
-	public void setAmountOfDeadlyPerson(int amountOfDeadlyPerson) {
-		this.amountOfDeadlyPerson = amountOfDeadlyPerson;
+	public void setAmountOfDead(int amountOfDead) {
+		this.amountOfDead = amountOfDead;
 	}
 	public boolean isTrafficBlocked() {
 		return trafficBlocked;

@@ -4,6 +4,10 @@ public class Position {
 	private double latitude;
 	private double longitude;
 	
+	public Position() {
+		this(0, 0);
+	}
+
 	public Position(double latitude, double longitude) {
 		super();
 		this.latitude = latitude;

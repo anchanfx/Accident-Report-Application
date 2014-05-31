@@ -2,30 +2,36 @@ package nu.ac.th.accidentreport;
 
 import android.os.AsyncTask;
 
-public class ReportTask extends AsyncTask<Void, Void, Void> {
+public class ReportTask extends AsyncTask<ReportDataCollection, Void, AcknowledgeDataCollection> {
 	private ServerConnector mServerConnector;
 	private ReportTaskListener mReportTaskListener;
-	private ReportDataCollection mReportDataCollection;
 	
 	public ReportTask(ServerConnector serverConnector,
-						ReportTaskListener reportTaskListener,
-						ReportDataCollection reportDataCollection) {
+						ReportTaskListener reportTaskListener) {
 		super();
 		mServerConnector = serverConnector;
 		mReportTaskListener = reportTaskListener;
-		mReportDataCollection = reportDataCollection;	
 	}
 
 	@Override
-	protected Void doInBackground(Void... params) {
+	protected AcknowledgeDataCollection doInBackground(ReportDataCollection... reportDataCollections) {
 		AcknowledgeDataCollection acknowledgeDataCollection = null;
 		
-		mServerConnector.sendReport(mReportDataCollection);
-		mReportTaskListener.onReportSent();
+		mServerConnector.sendReport(reportDataCollections[0]);
+		publishProgress((Void[])null);
 		
 		acknowledgeDataCollection = mServerConnector.receieveAcknowledgement();
-		mReportTaskListener.onAcknowledgementReceived(acknowledgeDataCollection);
+
+		return acknowledgeDataCollection;
+	}
 	
-		return null;
+	@Override
+	protected void onProgressUpdate(Void... values) {
+		mReportTaskListener.onReportSent();
+	}
+	
+	@Override
+	protected void onPostExecute(AcknowledgeDataCollection acknowledgeDataCollection) {
+		mReportTaskListener.onAcknowledgementReceived(acknowledgeDataCollection);
 	}
 }
