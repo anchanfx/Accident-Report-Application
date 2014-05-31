@@ -1,20 +1,15 @@
 package nu.ac.th.accidentreport;
 
-public class TCP_IP extends Connector {
-
-	public TCP_IP() {
-		super();
-	}
-
+public class TCP_IP extends ServerConnector {
 	@Override
-	public void send(Object object) {
-		// TODO Auto-generated method stub
+	public void sendReport(ReportDataCollection reportDataCollection) {
 		
 	}
 
 	@Override
-	public void receieve() {
-		// TODO Auto-generated method stub
+	public AcknowledgeDataCollection receieveAcknowledgement() {
+		AcknowledgeDataCollection acknowledgeDataCollection = null;
 		
+		return acknowledgeDataCollection;
 	}
 }
