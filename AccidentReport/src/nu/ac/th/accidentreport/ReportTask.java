@@ -17,21 +17,13 @@ public class ReportTask extends AsyncTask<ReportDataCollection, Void, Acknowledg
 	protected AcknowledgeDataCollection doInBackground(ReportDataCollection... reportDataCollections) {
 		AcknowledgeDataCollection acknowledgeDataCollection = null;
 		
-		mServerConnector.sendReport(reportDataCollections[0]);
-		publishProgress((Void[])null);
-		
-		acknowledgeDataCollection = mServerConnector.receieveAcknowledgement();
+		acknowledgeDataCollection = mServerConnector.sendReport(reportDataCollections[0]);
 
 		return acknowledgeDataCollection;
 	}
 	
 	@Override
-	protected void onProgressUpdate(Void... values) {
-		mReportTaskListener.onReportSent();
-	}
-	
-	@Override
 	protected void onPostExecute(AcknowledgeDataCollection acknowledgeDataCollection) {
-		mReportTaskListener.onAcknowledgementReceived(acknowledgeDataCollection);
+		mReportTaskListener.onReportSent(acknowledgeDataCollection);
 	}
 }

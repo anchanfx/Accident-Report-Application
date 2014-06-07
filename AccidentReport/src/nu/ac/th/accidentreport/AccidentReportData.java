@@ -5,17 +5,17 @@ import java.util.Date;
 public class AccidentReportData {
 	private Position mPosition;
 	private AdditionalInfo mAdditionalInfo;
-	private Date reportDate;
+	private Date date;
 	
 	public AccidentReportData() {
 		this(new Position(), new AdditionalInfo(), new Date());
 	}
 
 	public AccidentReportData(Position position, AdditionalInfo additionalInfo,
-			Date reportDate) {
+			Date date) {
 		super();
 		mPosition = position;
-		this.reportDate = reportDate;
+		this.date = date;
 		mAdditionalInfo = additionalInfo;
 	}
 
@@ -35,11 +35,11 @@ public class AccidentReportData {
 		mAdditionalInfo = additionalInfo;
 	}
 	
-	public Date getReportDate() {
-		return reportDate;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setReportDate(Date reportDate) {
-		this.reportDate = reportDate;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 }	

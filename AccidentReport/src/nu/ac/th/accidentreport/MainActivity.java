@@ -10,7 +10,8 @@ public class MainActivity extends Activity {
 	private ReportTask mReportTask;
 	private ReportTaskListener mReportTaskListener;
 	
-	private TextView mTextView;
+	//private TextView mTextView;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -24,7 +25,7 @@ public class MainActivity extends Activity {
 		mLocator = new GPS(mLocatorListener, getApplicationContext());
 		mReportTask = new ReportTask(new TCP_IP(), mReportTaskListener);
 		
-		mTextView = (TextView)findViewById(R.id.textview);
+		//mTextView = (TextView)findViewById(R.id.textview);
 	}
 	
 	private void createInterfaces() {
@@ -38,16 +39,9 @@ public class MainActivity extends Activity {
 		
 		mReportTaskListener = new ReportTaskListener() {
 			@Override
-			public void onReportSent() {
+			public void onReportSent(AcknowledgeDataCollection acknowledgeDataCollection) {
 				// Do Something when data was sent
-				//mTextView.setText("SENT!!");
-			}
-			
-			@Override
-			public void onAcknowledgementReceived(
-					AcknowledgeDataCollection acknowledgeDataCollection) {
-				// Do Something when ack was received
-				//mTextView.setText("RECV!!");
+				//mTextView.setText(acknowledgeDataCollection.getAcknowledgeInfo().getMessage());
 			}
 		};
 	}
