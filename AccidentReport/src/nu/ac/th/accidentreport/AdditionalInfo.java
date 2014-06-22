@@ -1,12 +1,12 @@
 package nu.ac.th.accidentreport;
 
 public class AdditionalInfo {
-	private static final AccidentType DEFAULT_TYPE = AccidentType.UNKNOWN;
+	private static final String DEFAULT_TYPE = "UNKNOWN";
 	private static final int DEFAULT_AMOUNT = 0;
 	private static final boolean DEFAULT_TRAFFIC_BLOCKED = false;
 	private static final String DEFAULT_MESSAGE = "";
 	
-	private AccidentType mAccidentType;
+	private String mAccidentType;
 	private int amountOfInjured;
 	private int amountOfDead;
 	private boolean trafficBlocked;
@@ -16,7 +16,7 @@ public class AdditionalInfo {
 		this(DEFAULT_TYPE, DEFAULT_AMOUNT, DEFAULT_AMOUNT, DEFAULT_TRAFFIC_BLOCKED, DEFAULT_MESSAGE);	
 	}
 	
-	public AdditionalInfo(AccidentType accidentType,
+	public AdditionalInfo(String accidentType,
 			int amountOfInjured, int amountOfDead,
 			boolean trafficBlocked, String message) {
 		super();
@@ -27,10 +27,10 @@ public class AdditionalInfo {
 		this.message = message;
 	}
 
-	public AccidentType getAccidentType() {
+	public String getAccidentType() {
 		return mAccidentType;
 	}
-	public void setAccidentType(AccidentType accidentType) {
+	public void setAccidentType(String accidentType) {
 		mAccidentType = accidentType;
 	}
 	public int getAmountOfInjured() {
