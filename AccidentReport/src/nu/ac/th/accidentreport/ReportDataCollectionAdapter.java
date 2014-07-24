@@ -1,6 +1,7 @@
 package nu.ac.th.accidentreport;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.http.NameValuePair;
@@ -10,24 +11,28 @@ import org.json.JSONObject;
 
 public class ReportDataCollectionAdapter {
 	
+	/* Doesn't convert Date into JSON Object because of using server time instead
+	 * So Date is not sent to server
+	 */
 	public static JSONObject toJSON(ReportDataCollection reportDataCollection) {
 		JSONObject holder = new JSONObject();
-		JSONObject jsonObject_AccidentReportData = new JSONObject();
-		JSONObject jsonObject_Position = new JSONObject();
-		JSONObject jsonObject_AdditionalInfo = new JSONObject();
-		JSONObject jsonObject_Date = new JSONObject();
+			JSONObject jsonObject_AccidentData = new JSONObject();
+				JSONObject jsonObject_Position = new JSONObject();
+				JSONObject jsonObject_AdditionalInfo = new JSONObject();
+			//JSONObject jsonObject_Date = new JSONObject();
 		
-		AccidentReportData accidentReportData = reportDataCollection.getAccidentReportData();	
+		AccidentData accidentReportData = reportDataCollection.getAccidentReportData();	
+		//Date date = reportDataCollection.getDate();
 		
 		try {
-			//AccidentReportData
-			//Position
+			/*AccidentData*/
+			/*Position*/
 			jsonObject_Position.put(JSONKeys.LATITUDE, 
 					accidentReportData.getPosition().getLatitude());
 			jsonObject_Position.put(JSONKeys.LONGITUDE, 
 					accidentReportData.getPosition().getLongitude());
 			
-			//AdditionalInfo
+			/*AdditionalInfo*/
 			jsonObject_AdditionalInfo.put(JSONKeys.ACCIDENT_TYPE, 
 					accidentReportData.getAdditionalInfo().getAccidentType());
 			jsonObject_AdditionalInfo.put(JSONKeys.AMOUNT_OF_INJURED, 
@@ -39,14 +44,13 @@ public class ReportDataCollectionAdapter {
 			jsonObject_AdditionalInfo.put(JSONKeys.MESSAGE, 
 					accidentReportData.getAdditionalInfo().getMessage());
 			
-			//Date
-			jsonObject_Date.put(JSONKeys.DATE, 
-					String.valueOf(accidentReportData.getDate().toString()));
+			/*Date*/
+			//jsonObject_Date.put(JSONKeys.TIME, date.getTime());
 			
-			jsonObject_AccidentReportData.put(JSONKeys.JSON_OBJECT_POSITION, jsonObject_Position);
-			jsonObject_AccidentReportData.put(JSONKeys.JSON_OBJECT_ADDITIONAL_INFO, jsonObject_AdditionalInfo);
-			jsonObject_AccidentReportData.put(JSONKeys.JSON_OBJECT_DATE, jsonObject_Date);
-			holder.put(JSONKeys.ACCIDENT_REPORT_DATA,jsonObject_AccidentReportData);
+			jsonObject_AccidentData.put(JSONKeys.JSON_OBJECT_POSITION, jsonObject_Position);
+			jsonObject_AccidentData.put(JSONKeys.JSON_OBJECT_ADDITIONAL_INFO, jsonObject_AdditionalInfo);			
+			holder.put(JSONKeys.JSON_OBJECT_ACCIDENT_DATA,jsonObject_AccidentData);
+			//holder.put(JSONKeys.JSON_OBJECT_DATE, jsonObject_Date);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -57,7 +61,8 @@ public class ReportDataCollectionAdapter {
 	@Deprecated
 	public static List<NameValuePair> toNameValuePairs(ReportDataCollection reportDataCollection) {
 		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-		AccidentReportData accidentReportData = reportDataCollection.getAccidentReportData();
+		AccidentData accidentReportData = reportDataCollection.getAccidentReportData();
+		Date date = reportDataCollection.getDate();
 		
 		// AccidentReportData
 		// Position
@@ -85,11 +90,8 @@ public class ReportDataCollectionAdapter {
 						String.valueOf(accidentReportData.getAdditionalInfo().getMessage())));
 		// Date
 		nameValuePairs.add(
-				new BasicNameValuePair(JSONKeys.DATE, 
-						String.valueOf(accidentReportData.getDate().toString())));
+				new BasicNameValuePair(JSONKeys.TIME, String.valueOf(date.getTime())));
 		
 		return nameValuePairs;
 	}
-	
-	
 }

@@ -10,12 +10,11 @@ public class AcknowledgeDataCollectionAdapter {
 		AcknowledgeInfo acknowledgeInfo = null;
 		
 		try {
-			JSONObject jsoObject_AcknowledgeInfo = 
+			JSONObject jsonObject_AcknowledgeInfo = 
 					jsonObject.getJSONObject(JSONKeys.JSON_OBJECT_ACKNOWLEDGE_INFO);
 			
 			acknowledgeInfo = new AcknowledgeInfo(
-					jsoObject_AcknowledgeInfo.getString(JSONKeys.MESSAGE)
-					);
+					jsonObject_AcknowledgeInfo.getString(JSONKeys.MESSAGE));
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

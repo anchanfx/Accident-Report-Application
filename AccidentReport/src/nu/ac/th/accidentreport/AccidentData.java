@@ -1,21 +1,16 @@
 package nu.ac.th.accidentreport;
 
-import java.util.Date;
-
-public class AccidentReportData {
+public class AccidentData {
 	private Position mPosition;
 	private AdditionalInfo mAdditionalInfo;
-	private Date date;
 	
-	public AccidentReportData() {
-		this(new Position(), new AdditionalInfo(), new Date());
+	public AccidentData() {
+		this(new Position(), new AdditionalInfo());
 	}
 
-	public AccidentReportData(Position position, AdditionalInfo additionalInfo,
-			Date date) {
+	public AccidentData(Position position, AdditionalInfo additionalInfo) {
 		super();
 		mPosition = position;
-		this.date = date;
 		mAdditionalInfo = additionalInfo;
 	}
 
@@ -33,13 +28,5 @@ public class AccidentReportData {
 
 	public void setAdditionalInfo(AdditionalInfo additionalInfo) {
 		mAdditionalInfo = additionalInfo;
-	}
-	
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
 	}
 }	

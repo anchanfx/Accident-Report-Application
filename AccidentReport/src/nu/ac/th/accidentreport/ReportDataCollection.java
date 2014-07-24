@@ -1,18 +1,30 @@
 package nu.ac.th.accidentreport;
 
+import java.util.Date;
+
 public class ReportDataCollection {
-	private AccidentReportData mAccidentReportData;
+	private AccidentData mAccidentData;
+	private Date mDate;
 	
 	public ReportDataCollection() {
-		this(new AccidentReportData());
+		this(new AccidentData(), new Date());
 	}
 
-	public ReportDataCollection(AccidentReportData accidentReportData) {
+	public ReportDataCollection(AccidentData accidentData, Date date) {
 		super();
-		mAccidentReportData = accidentReportData;
+		mAccidentData = accidentData;
+		mDate = date;
 	}
 
-	public AccidentReportData getAccidentReportData() {
-		return mAccidentReportData;
+	public AccidentData getAccidentReportData() {
+		return mAccidentData;
+	}
+	
+	public Date getDate() {
+		return mDate;
+	}
+
+	public void setDate(Date date) {
+		this.mDate = date;
 	}
 }
