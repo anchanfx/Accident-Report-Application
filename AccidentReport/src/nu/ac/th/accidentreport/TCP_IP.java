@@ -4,7 +4,8 @@ import org.apache.http.HttpResponse;
 import org.json.JSONObject;
 
 public class TCP_IP extends ServerConnector {
-	private static final String SERVER_URL = "http://nuaccrepo.mywebcommunity.org/receiveFromApp.php";
+	private static final String SERVER_URL = 
+			"http://nuaccrepo.mywebcommunity.org/ReportServer/reportAccident.php";
 	
 	@Override
 	public AcknowledgeDataCollection sendReport(ReportDataCollection reportDataCollection) {
