@@ -5,9 +5,78 @@
     tools:context="${packageName}.${activityClass}" >
 
     <TextView
-        android:id="@+id/textview"
+        android:id="@+id/txtview_title_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/sample" />
+        android:layout_below="@+id/txtview_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Your position received from GPS" />
+
+    <TextView
+        android:id="@+id/txtview_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="44dp"
+        android:text="Accident Report Application"
+        android:textSize="23dp" />
+
+    <TextView
+        android:id="@+id/txtview_longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtview_title"
+        android:layout_below="@+id/txtview_title_2"
+        android:layout_marginTop="44dp"
+        android:text="Longitude : "
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/txtview_show_longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtview_longitude"
+        android:layout_alignRight="@+id/txtview_title"
+        android:layout_toRightOf="@+id/txtview_longitude"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/txtview_latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtview_longitude"
+        android:layout_centerVertical="true"
+        android:text="Latitude :"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/txtview_show_latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtview_latitude"
+        android:layout_alignLeft="@+id/txtview_show_longitude"
+        android:layout_alignRight="@+id/txtview_show_longitude"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/btn_fill_additional_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtview_show_latitude"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp"
+        android:text="Fill Additional Info" />
+
+    <Button
+        android:id="@+id/btn_report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn_fill_additional_info"
+        android:layout_alignRight="@+id/btn_fill_additional_info"
+        android:layout_below="@+id/btn_fill_additional_info"
+        android:layout_marginTop="19dp"
+        android:text="Report" />
 
 </RelativeLayout>
