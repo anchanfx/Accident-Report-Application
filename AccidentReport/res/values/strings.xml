@@ -6,6 +6,6 @@
     <string name="sample">Hello world!</string>
     <string name="show_longitude"/>
     <string name="show_latitude" />
-    
+    <string name="show_msg_report" />
 
 </resources>
