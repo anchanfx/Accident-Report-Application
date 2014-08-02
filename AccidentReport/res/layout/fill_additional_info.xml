@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_fill_addional_info"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#ffffff" >
 
     <TextView
         android:id="@+id/txtview_accident_type"
@@ -40,17 +42,6 @@
         android:layout_toRightOf="@+id/txtview_injured"
         android:text="Yes!" />
 
-    <EditText
-        android:id="@+id/edittxt_input_accident_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/edittxt_input_injured"
-        android:layout_below="@+id/txtview_accident_type"
-        android:ems="10" >
-
-        <requestFocus />
-    </EditText>
-
     <TextView
         android:id="@+id/txtview_injured"
         android:layout_width="wrap_content"
@@ -60,15 +51,6 @@
         android:layout_marginTop="14dp"
         android:text="Injured : "
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <EditText
-        android:id="@+id/edittxt_input_injured"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtview_injured"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
-        android:ems="10" />
 
     <TextView
         android:id="@+id/txtview_dead"
@@ -81,13 +63,31 @@
         android:text="Dead : "
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <EditText
+        android:id="@+id/edittxt_input_accident_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtview_accident_type"
+        android:layout_centerHorizontal="true"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/edittxt_input_injured"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtview_injured"
+        android:layout_centerHorizontal="true"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
     <Button
         android:id="@+id/btn_submit_add_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="39dp"
-        android:layout_toRightOf="@+id/txtview_dead"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/chkbox_block_roads_yes"
         android:text="Submit" />
 
 </RelativeLayout>

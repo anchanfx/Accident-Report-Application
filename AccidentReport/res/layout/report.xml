@@ -14,7 +14,7 @@
         android:text="@string/show_msg_report" />
 
     <Button
-        android:id="@+id/btn_cancel_report"
+        android:id="@+id/layout_fill_addional_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtview_msg_report"
