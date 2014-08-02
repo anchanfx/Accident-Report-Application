@@ -4,5 +4,8 @@
     <string name="app_name">Accident Report</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="sample">Hello world!</string>
+    <string name="show_longitude"/>
+    <string name="show_latitude" />
+    
 
 </resources>
