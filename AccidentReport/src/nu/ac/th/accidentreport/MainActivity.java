@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.PopupWindow;
-import android.widget.TextView;
 
 public class MainActivity extends Activity {
 	private Locator mLocator;
@@ -28,6 +27,20 @@ public class MainActivity extends Activity {
 		
 		initializeVariables();
 		fill_additional_info();
+		report();
+	}
+	
+	private void report() {
+		final Button btn = (Button) findViewById(R.id.btn_report);
+		btn.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(getBaseContext(), ReportActivity.class);
+				startActivity(intent);
+			}
+		});
 	}
 	
 	private void fill_additional_info() {
@@ -36,15 +49,16 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				//Intent intent = new Intent(getBaseContext(), FillAdditionalActivity.class);
-				//startActivity(intent);
+				Intent intent = new Intent(getBaseContext(), FillAdditionalActivity.class);
+				startActivity(intent);
+				//finish();
 				//startActivityForResult(intent, 10);
 				
-				LayoutInflater inflater = (LayoutInflater) MainActivity.this
-						.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-				View layout = inflater.inflate(R.layout.fill_additional_info, (ViewGroup) findViewById(R.id.layout_fill_addional_info));
-				pwindo = new PopupWindow(layout, 600, 875, true);
-				pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
+				//LayoutInflater inflater = (LayoutInflater) MainActivity.this
+				//		.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+				//View layout = inflater.inflate(R.layout.fill_additional_info, (ViewGroup) findViewById(R.id.layout_fill_addional_info));
+				//pwindo = new PopupWindow(layout, 600, 875, true);
+				//pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
 			}
 		});
 	}

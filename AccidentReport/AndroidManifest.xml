@@ -27,6 +27,7 @@
             </intent-filter>
         </activity>
         <activity android:name="FillAdditionalActivity" android:theme="@style/AppTheme"></activity>
+        <activity android:name="ReportActivity" android:theme="@style/AppTheme"></activity>
 
     </application>
 

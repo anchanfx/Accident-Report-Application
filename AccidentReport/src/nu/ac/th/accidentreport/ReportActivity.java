@@ -2,17 +2,17 @@ package nu.ac.th.accidentreport;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.style.SuperscriptSpan;
 import android.view.View;
 import android.widget.Button;
 
-public class FillAdditionalActivity extends Activity {
+public class ReportActivity extends Activity {
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.fill_additional_info);
-		//PopupWindow popup_windows = new PopupWindow(this);
+		setContentView(R.layout.report);
 		
-		Button btn = (Button) findViewById(R.id.btn_submit_add_info);
+		Button btn = (Button) findViewById(R.id.btn_cancel);
 		btn.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -22,5 +22,5 @@ public class FillAdditionalActivity extends Activity {
 			}
 		});
 	}
-
+	
 }
