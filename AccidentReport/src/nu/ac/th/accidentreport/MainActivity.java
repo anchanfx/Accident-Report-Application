@@ -36,9 +36,10 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				//Intent intent = new Intent(MainActivity.this, FillAdditionalInfo.class);
+				//Intent intent = new Intent(getBaseContext(), FillAdditionalActivity.class);
 				//startActivity(intent);
 				//startActivityForResult(intent, 10);
+				
 				LayoutInflater inflater = (LayoutInflater) MainActivity.this
 						.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				View layout = inflater.inflate(R.layout.fill_additional_info, (ViewGroup) findViewById(R.id.layout_fill_addional_info));

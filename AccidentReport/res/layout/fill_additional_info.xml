@@ -5,89 +5,80 @@
     android:layout_height="match_parent"
     android:background="#ffffff" >
 
-    <TextView
-        android:id="@+id/txtview_accident_type"
+    <LinearLayout
+        android:id="@+id/layout_fill_additional_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="59dp"
-        android:text="Accident Type : "
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_margin="30dp"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:padding="10dp" >
 
-    <EditText
-        android:id="@+id/edittxt_input_dead"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/txtview_dead"
-        android:layout_toRightOf="@+id/txtview_dead"
-        android:ems="10"
-        android:inputType="number" />
+        <TextView
+            android:id="@+id/txtview_accident_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Accident Type : "
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/txtview_block_road"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txtview_dead"
-        android:layout_below="@+id/txtview_dead"
-        android:layout_marginTop="30dp"
-        android:text="Block Roads : "
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        <EditText
+            android:id="@+id/edittxt_input_accident_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10" />
 
-    <CheckBox
-        android:id="@+id/chkbox_block_roads_yes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/txtview_block_road"
-        android:layout_toRightOf="@+id/txtview_injured"
-        android:text="Yes!" />
+        <TextView
+            android:id="@+id/txtview_injured"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="Injured : "
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/txtview_injured"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edittxt_input_accident_type"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:text="Injured : "
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        <EditText
+            android:id="@+id/edittxt_input_injured"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10" />
 
-    <TextView
-        android:id="@+id/txtview_dead"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edittxt_input_injured"
-        android:layout_marginRight="18dp"
-        android:layout_marginTop="22dp"
-        android:layout_toLeftOf="@+id/txtview_injured"
-        android:text="Dead : "
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        <TextView
+            android:id="@+id/txtview_dead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="18dp"
+            android:layout_marginTop="22dp"
+            android:text="Dead : "
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
-        android:id="@+id/edittxt_input_accident_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtview_accident_type"
-        android:layout_centerHorizontal="true"
-        android:ems="10" />
+        <EditText
+            android:id="@+id/edittxt_input_dead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" />
 
-    <EditText
-        android:id="@+id/edittxt_input_injured"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtview_injured"
-        android:layout_centerHorizontal="true"
-        android:ems="10" >
+        <TextView
+            android:id="@+id/txtview_block_road"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Block Roads : "
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <requestFocus />
-    </EditText>
+        <CheckBox
+            android:id="@+id/chkbox_block_roads_yes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes!" />
 
-    <Button
-        android:id="@+id/btn_submit_add_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/chkbox_block_roads_yes"
-        android:text="Submit" />
+        <Button
+            android:id="@+id/btn_submit_add_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit" />
+    </LinearLayout>
 
 </RelativeLayout>
