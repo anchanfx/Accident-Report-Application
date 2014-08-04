@@ -8,19 +8,17 @@
         android:id="@+id/txtview_msg_report"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="44dp"
-        android:text="@string/show_msg_report" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="129dp"
+        android:text="Sending the data to server..." />
 
     <Button
         android:id="@+id/btn_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtview_msg_report"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="104dp"
-        android:text="Cancel" />
+        android:layout_centerVertical="true"
+        android:text="@string/btn_close_report" />
 
 </RelativeLayout>

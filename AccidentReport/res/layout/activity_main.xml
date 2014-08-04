@@ -11,7 +11,7 @@
         android:layout_below="@+id/txtview_title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:text="Your position received from GPS" />
+        android:text="@string/title_detail" />
 
     <TextView
         android:id="@+id/txtview_title"
@@ -20,7 +20,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="44dp"
-        android:text="Accident Report Application"
+        android:text="@string/title_app"
         android:textSize="23dp" />
 
     <TextView
@@ -30,7 +30,7 @@
         android:layout_alignLeft="@+id/txtview_title"
         android:layout_below="@+id/txtview_title_2"
         android:layout_marginTop="44dp"
-        android:text="Longitude : "
+        android:text="@string/longitude"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -40,7 +40,6 @@
         android:layout_alignBottom="@+id/txtview_longitude"
         android:layout_alignRight="@+id/txtview_title"
         android:layout_toRightOf="@+id/txtview_longitude"
-        android:text="@string/show_longitude"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -49,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txtview_longitude"
         android:layout_centerVertical="true"
-        android:text="Latitude :"
+        android:text="@string/latitude"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -59,7 +58,6 @@
         android:layout_alignBottom="@+id/txtview_latitude"
         android:layout_alignLeft="@+id/txtview_show_longitude"
         android:layout_alignRight="@+id/txtview_show_longitude"
-        android:text="@string/show_latitude"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
@@ -69,7 +67,7 @@
         android:layout_below="@+id/txtview_show_latitude"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="52dp"
-        android:text="Fill Additional Info" />
+        android:text="@string/btn_fill_aditional" />
 
     <Button
         android:id="@+id/btn_report"
@@ -79,6 +77,6 @@
         android:layout_alignRight="@+id/btn_fill_additional_info"
         android:layout_below="@+id/btn_fill_additional_info"
         android:layout_marginTop="19dp"
-        android:text="Report" />
+        android:text="@string/btn_report" />
 
 </RelativeLayout>

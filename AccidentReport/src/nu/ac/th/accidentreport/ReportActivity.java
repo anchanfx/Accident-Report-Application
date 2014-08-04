@@ -2,7 +2,6 @@ package nu.ac.th.accidentreport;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.style.SuperscriptSpan;
 import android.view.View;
 import android.widget.Button;
 

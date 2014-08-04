@@ -4,8 +4,21 @@
     <string name="app_name">Accident Report</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="sample">Hello world!</string>
-    <string name="show_longitude">Longitude</string>
-    <string name="show_latitude">Latitude</string>
     <string name="show_msg_report" />
+    
+    <string name="title_app">Accident Report Application</string>
+    <string name="title_detail">Your position received from GPS</string>
+    <string name="longitude">Longitude : </string>
+    <string name="latitude">Latitude : </string>
+    <string name="btn_fill_aditional">Fill Additional Info</string>
+    <string name="btn_report">Report</string>
+    
+    <string name="accident_type">Accident Type : </string>
+    <string name="injured">Injured : </string>
+    <string name="dead">Dead : </string>
+    <string name="block_road">Block Roads : </string>
+    <string name="btn_submit_info">Submit</string>
+    
+    <string name="btn_close_report">Close</string>
 
 </resources>

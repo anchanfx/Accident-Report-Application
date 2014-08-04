@@ -19,7 +19,7 @@ public class MainActivity extends Activity {
 	private ReportTaskListener mReportTaskListener;
 	
 	//private TextView mTextView;
-	private PopupWindow pwindo;
+	//private PopupWindow pwindo;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,6 +44,7 @@ public class MainActivity extends Activity {
 	}
 	
 	private void fill_additional_info() {
+		final Button plus = (Button) findViewById(R.id.btn_fill_additional_info);
 		final Button btn = (Button) findViewById(R.id.btn_fill_additional_info);
 		btn.setOnClickListener(new View.OnClickListener() {
 			@Override
