@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
 			pwindo = new PopupWindow(layout, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, true);
 			pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
 			
-			btnClosePopup = (Button) layout.findViewById(R.id.btn_cancel);
+			btnClosePopup = (Button) layout.findViewById(R.id.layout_additional_info);
 			btnClosePopup.setOnClickListener(cancel_btn);
 		}catch (Exception e){
 			e.printStackTrace();

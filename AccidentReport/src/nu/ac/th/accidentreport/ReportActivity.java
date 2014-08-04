@@ -11,7 +11,7 @@ public class ReportActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.report);
 		
-		Button btn = (Button) findViewById(R.id.btn_cancel);
+		Button btn = (Button) findViewById(R.id.layout_additional_info);
 		btn.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

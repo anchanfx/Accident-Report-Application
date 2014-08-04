@@ -17,6 +17,7 @@
     <string name="injured">Injured : </string>
     <string name="dead">Dead : </string>
     <string name="block_road">Block Roads : </string>
+    <string name="message">Message : </string>
     <string name="btn_submit_info">Submit</string>
     
     <string name="btn_close_report">Close</string>
