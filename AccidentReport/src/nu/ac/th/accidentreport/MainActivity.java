@@ -15,6 +15,8 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
+	public static final int ACTIVITY_CODE = 0;
+	
 	private Locator mLocator;
 	private LocatorListener mLocatorListener;
 	private ReportTask mReportTask;
@@ -37,7 +39,6 @@ public class MainActivity extends Activity {
 	// Report Data
 	private ReportDataCollection mReportDataCollection;
 	private AccidentData mAccidentData;
-	private AdditionalInfo mAdditionalInfo;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +59,6 @@ public class MainActivity extends Activity {
 		
 		mReportDataCollection = new ReportDataCollection();
 		mAccidentData = new AccidentData();
-		mAdditionalInfo = mAccidentData.getAdditionalInfo();
 	}
 	
 	private void initializeGUIComponents() {
@@ -142,7 +142,9 @@ public class MainActivity extends Activity {
 	
 	private void startAdditionalInfoActivity() {
 		Intent intent = new Intent(getBaseContext(), FillAdditionalInfoActivity.class);
-		startActivity(intent);
+		intent.putExtra(FillAdditionalInfoActivity.EXTRA_ADDITIONAL_INFO, 
+				mAccidentData.getAdditionalInfo());
+		startActivityForResult(intent, FillAdditionalInfoActivity.ACTIVITY_CODE);
 	}
 	
 	@Override
@@ -155,5 +157,18 @@ public class MainActivity extends Activity {
 	protected void onResume() {
 		mLocator.startLocatePosition();
 		super.onResume();
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if(resultCode == RESULT_OK)
+		{
+			updateAdditionalInfo((AdditionalInfo)data.getSerializableExtra(
+					 FillAdditionalInfoActivity.EXTRA_ADDITIONAL_INFO));;
+		}
+	}
+	
+	private void updateAdditionalInfo(AdditionalInfo additionalInfo) {
+		mAccidentData.setAdditionalInfo(additionalInfo);
 	}
 }

@@ -26,9 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="FillAdditionalActivity" android:theme="@style/AppTheme"></activity>
-        <activity android:name="ReportActivity" android:theme="@style/AppTheme"></activity>
-
+        <activity android:name="FillAdditionalInfoActivity" android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

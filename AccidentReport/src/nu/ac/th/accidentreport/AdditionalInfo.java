@@ -1,6 +1,8 @@
 package nu.ac.th.accidentreport;
 
-public class AdditionalInfo {
+import java.io.Serializable;
+
+public class AdditionalInfo implements Serializable {
 	private static final String DEFAULT_TYPE = "UNKNOWN";
 	private static final int DEFAULT_AMOUNT = 0;
 	private static final boolean DEFAULT_TRAFFIC_BLOCKED = false;

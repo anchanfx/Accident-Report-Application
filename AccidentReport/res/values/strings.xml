@@ -16,7 +16,8 @@
     <string name="accident_type">Accident Type : </string>
     <string name="injured">Injured : </string>
     <string name="dead">Dead : </string>
-    <string name="block_road">Block Roads : </string>
+    <string name="block_road">Traffic Blocked? : </string>
+    <string name="yes">Yes!</string>
     <string name="message">Message : </string>
     <string name="btn_submit_info">Submit</string>
     
