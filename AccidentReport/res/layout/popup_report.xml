@@ -7,7 +7,7 @@
     android:padding="20dp" >
 
     <Button
-        android:id="@+id/layout_additional_info"
+        android:id="@+id/btn_close_report"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtview_msg_report"
@@ -22,6 +22,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
-        android:text="Sending the data to server..." />
+        android:text="@string/msg_sending_data" />
 
 </RelativeLayout>

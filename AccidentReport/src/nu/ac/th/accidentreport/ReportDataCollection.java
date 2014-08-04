@@ -9,6 +9,10 @@ public class ReportDataCollection {
 	public ReportDataCollection() {
 		this(new AccidentData(), new Date());
 	}
+	
+	public ReportDataCollection(AccidentData accidentData) {
+		this(accidentData, new Date());
+	}
 
 	public ReportDataCollection(AccidentData accidentData, Date date) {
 		super();
@@ -16,10 +20,14 @@ public class ReportDataCollection {
 		mDate = date;
 	}
 
-	public AccidentData getAccidentReportData() {
+	public AccidentData getAccidentData() {
 		return mAccidentData;
 	}
-	
+
+	public void setAccidentData(AccidentData accidentData) {
+		mAccidentData = accidentData;
+	}
+
 	public Date getDate() {
 		return mDate;
 	}

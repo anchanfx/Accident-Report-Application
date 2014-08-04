@@ -21,7 +21,7 @@ public class ReportDataCollectionAdapter {
 				JSONObject jsonObject_AdditionalInfo = new JSONObject();
 			//JSONObject jsonObject_Date = new JSONObject();
 		
-		AccidentData accidentReportData = reportDataCollection.getAccidentReportData();	
+		AccidentData accidentReportData = reportDataCollection.getAccidentData();	
 		//Date date = reportDataCollection.getDate();
 		
 		try {
@@ -61,7 +61,7 @@ public class ReportDataCollectionAdapter {
 	@Deprecated
 	public static List<NameValuePair> toNameValuePairs(ReportDataCollection reportDataCollection) {
 		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-		AccidentData accidentReportData = reportDataCollection.getAccidentReportData();
+		AccidentData accidentReportData = reportDataCollection.getAccidentData();
 		Date date = reportDataCollection.getDate();
 		
 		// AccidentReportData

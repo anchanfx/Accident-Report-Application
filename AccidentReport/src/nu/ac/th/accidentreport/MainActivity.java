@@ -12,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 	private Locator mLocator;
@@ -19,117 +20,140 @@ public class MainActivity extends Activity {
 	private ReportTask mReportTask;
 	private ReportTaskListener mReportTaskListener;
 	
-	//private TextView mTextView;
-	//private PopupWindow pwindo;
+	// MainActivity Components
+	private TextView txtViewLongitude;
+	private TextView txtViewLatitude;
+	private Button btnReport;
+	private OnClickListener btnReportListener;
+	private Button btnAddInfo;
+	private OnClickListener btnAddInfoListener;
+	// Report pop-up components
+	private View viewReport;
+	private PopupWindow pwindoReport;
+	private Button btnClosePopup;
+	private OnClickListener btnClosePopupListener;
+	private TextView txtViewReportMessage;
+	
+	// Report Data
+	private ReportDataCollection mReportDataCollection;
+	private AccidentData mAccidentData;
+	private AdditionalInfo mAdditionalInfo;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		createInterfaces();
 		initializeVariables();
-		fill_additional_info();
-		report();
-	}
-	
-	private void report() {
-		final Button btn = (Button) findViewById(R.id.btn_report);
-		btn.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				//Intent intent = new Intent(getBaseContext(), ReportActivity.class);
-				//startActivity(intent);
-				show_report();
-				
-			}
-		});
-	}
-	private PopupWindow pwindo;
-	Button btnClosePopup;
-	private void show_report()
-	{
-		try{
-			LayoutInflater inflater = (LayoutInflater) MainActivity.this
-					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			View layout = inflater.inflate(R.layout.report, (ViewGroup) findViewById(R.id.layout_report));
-			pwindo = new PopupWindow(layout, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, true);
-			pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
-			
-			btnClosePopup = (Button) layout.findViewById(R.id.layout_additional_info);
-			btnClosePopup.setOnClickListener(cancel_btn);
-		}catch (Exception e){
-			e.printStackTrace();
-		}
-	}
-	
-	private OnClickListener cancel_btn = new OnClickListener() {
+		initializeGUIComponents();
+		createReportPopup();
 		
-		@Override
-		public void onClick(View v) {
-			// TODO Auto-generated method stub
-			pwindo.dismiss();
-			
-		}
-	};
-	private void fill_additional_info() {
-		final Button plus = (Button) findViewById(R.id.btn_fill_additional_info);
-		final Button btn = (Button) findViewById(R.id.btn_fill_additional_info);
-		btn.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent(getBaseContext(), FillAdditionalActivity.class);
-				startActivity(intent);
-				//finish();
-				//startActivityForResult(intent, 10);
-				
-				//LayoutInflater inflater = (LayoutInflater) MainActivity.this
-				//		.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-				//View layout = inflater.inflate(R.layout.fill_additional_info, (ViewGroup) findViewById(R.id.layout_fill_addional_info));
-				//pwindo = new PopupWindow(layout, 600, 875, true);
-				//pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
-			}
-		});
+		updatePosition(mAccidentData.getPosition());
 	}
 	
 	private void initializeVariables() {
-		createInterfaces();
 		mLocator = new GPS(mLocatorListener, getApplicationContext());
-		mReportTask = new ReportTask(new TCP_IP(), mReportTaskListener);
+		mReportTask = null;
 		
-		//mTextView = (TextView)findViewById(R.id.textview);
+		mReportDataCollection = new ReportDataCollection();
+		mAccidentData = new AccidentData();
+		mAdditionalInfo = mAccidentData.getAdditionalInfo();
+	}
+	
+	private void initializeGUIComponents() {
+		txtViewLongitude = (TextView)findViewById(R.id.txtview_show_longitude);
+		txtViewLatitude = (TextView)findViewById(R.id.txtview_show_latitude);
+		btnReport = (Button)findViewById(R.id.btn_report);
+		btnReport.setOnClickListener(btnReportListener);
+		btnAddInfo = (Button)findViewById(R.id.btn_fill_additional_info);
+		btnAddInfo.setOnClickListener(btnAddInfoListener);
 	}
 	
 	private void createInterfaces() {
 		mLocatorListener = new LocatorListener() {
 			@Override
 			public void onLocationUpdated(Position position) {
-				// Update a position from locator into Textview or something
-				// mTextView.setText(position.toString());
+				updatePosition(position);
 			}
 		};
 		
 		mReportTaskListener = new ReportTaskListener() {
 			@Override
 			public void onReportSent(AcknowledgeDataCollection acknowledgeDataCollection) {
-				// Do Something when data was sent
-				//mTextView.setText(acknowledgeDataCollection.getAcknowledgeInfo().getMessage());
+				txtViewReportMessage.setText(acknowledgeDataCollection.getAcknowledgeInfo().getMessage());
 			}
 		};
+		
+		btnClosePopupListener = new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				pwindoReport.dismiss();
+				txtViewReportMessage.setText(R.string.msg_sending_data);
+			}
+		};
+		
+		btnReportListener = new OnClickListener() {	
+			@Override
+			public void onClick(View v) {
+				showReportPopup();
+				sendReport();
+			}
+		};
+		
+		btnAddInfoListener = new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startAdditionalInfoActivity();
+			}
+		};
+	}
+	
+	private void createReportPopup()
+	{
+		LayoutInflater inflater = (LayoutInflater)MainActivity
+				.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		viewReport = inflater.inflate(R.layout.popup_report, (ViewGroup)findViewById(R.id.layout_report));
+		
+		pwindoReport = new PopupWindow(viewReport, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, true);
+		
+		txtViewReportMessage = (TextView)viewReport.findViewById(R.id.txtview_msg_report);
+		btnClosePopup = (Button)viewReport.findViewById(R.id.btn_close_report);
+		btnClosePopup.setOnClickListener(btnClosePopupListener);
+	}
+	
+	private void updatePosition(Position position)
+	{
+		txtViewLongitude.setText(String.valueOf(position.getLongitude()));
+		txtViewLatitude.setText(String.valueOf(position.getLatitude()));
+		mAccidentData.setPosition(position);
+	}
+	
+	private void showReportPopup()
+	{
+		pwindoReport.showAtLocation(viewReport, Gravity.CENTER, 0, 0);
+	}
+	
+	private void sendReport() {
+		mReportDataCollection.setAccidentData(mAccidentData);
+		mReportTask = new ReportTask(new TCP_IP(), mReportTaskListener);
+		mReportTask.execute(mReportDataCollection);
+	}
+	
+	private void startAdditionalInfoActivity() {
+		Intent intent = new Intent(getBaseContext(), FillAdditionalInfoActivity.class);
+		startActivity(intent);
 	}
 	
 	@Override
 	protected void onPause() {
 		mLocator.stopLocatePosition();
-		
 		super.onPause();
 	}
 
 	@Override
 	protected void onResume() {
 		mLocator.startLocatePosition();
-		//mReportTask.execute(new ReportDataCollection());
 		super.onResume();
 	}
 }
