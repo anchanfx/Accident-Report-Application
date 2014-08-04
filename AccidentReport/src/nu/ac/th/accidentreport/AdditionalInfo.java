@@ -3,6 +3,10 @@ package nu.ac.th.accidentreport;
 import java.io.Serializable;
 
 public class AdditionalInfo implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8617645823707927566L;
 	private static final String DEFAULT_TYPE = "UNKNOWN";
 	private static final int DEFAULT_AMOUNT = 0;
 	private static final boolean DEFAULT_TRAFFIC_BLOCKED = false;
