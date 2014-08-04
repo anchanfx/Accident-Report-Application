@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.PopupWindow;
@@ -37,12 +38,40 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(getBaseContext(), ReportActivity.class);
-				startActivity(intent);
+				//Intent intent = new Intent(getBaseContext(), ReportActivity.class);
+				//startActivity(intent);
+				show_report();
+				
 			}
 		});
 	}
+	private PopupWindow pwindo;
+	Button btnClosePopup;
+	private void show_report()
+	{
+		try{
+			LayoutInflater inflater = (LayoutInflater) MainActivity.this
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			View layout = inflater.inflate(R.layout.report, (ViewGroup) findViewById(R.id.layout_report));
+			pwindo = new PopupWindow(layout, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, true);
+			pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
+			
+			btnClosePopup = (Button) layout.findViewById(R.id.btn_cancel);
+			btnClosePopup.setOnClickListener(cancel_btn);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+	}
 	
+	private OnClickListener cancel_btn = new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			pwindo.dismiss();
+			
+		}
+	};
 	private void fill_additional_info() {
 		final Button plus = (Button) findViewById(R.id.btn_fill_additional_info);
 		final Button btn = (Button) findViewById(R.id.btn_fill_additional_info);
