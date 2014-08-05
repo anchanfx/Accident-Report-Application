@@ -106,14 +106,6 @@
             android:text="@string/message"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <CheckBox
-            android:id="@+id/chkbox_traffic_blocked_yes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/edittxt_input_accident_type"
-            android:layout_alignTop="@+id/txtview_block_road"
-            android:text="@string/yes" />
-
         <EditText
             android:id="@+id/edittxt_message"
             android:layout_width="wrap_content"
@@ -124,6 +116,14 @@
             android:layout_marginTop="16dp"
             android:ems="10"
             android:inputType="textMultiLine" />
+
+        <CheckBox
+            android:id="@+id/chkbox_traffic_blocked_yes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/txtview_block_road"
+            android:layout_toRightOf="@+id/txtview_block_road"
+            android:text="@string/yes" />
 
     </RelativeLayout>
 
