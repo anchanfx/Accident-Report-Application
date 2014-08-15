@@ -3,7 +3,6 @@
 
     <string name="app_name">Accident Report</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="sample">Hello world!</string>
     <string name="msg_sending_data">Sending the data to server&#8230;</string>
     
     <string name="title_app">Accident Report Application</string>
