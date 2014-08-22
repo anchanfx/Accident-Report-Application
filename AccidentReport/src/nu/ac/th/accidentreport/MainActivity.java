@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	public static final int ACTIVITY_CODE = 0;
@@ -75,6 +76,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onLocationUpdated(Position position) {
 				updatePosition(position);
+				alertOnUpdatePosition();
 			}
 		};
 		
@@ -127,6 +129,12 @@ public class MainActivity extends Activity {
 		txtViewLongitude.setText(String.valueOf(position.getLongitude()));
 		txtViewLatitude.setText(String.valueOf(position.getLatitude()));
 		mAccidentData.setPosition(position);
+	}
+	
+	private void alertOnUpdatePosition()
+	{
+		Toast.makeText(getApplicationContext(), R.string.position_updated, 
+				   Toast.LENGTH_SHORT).show();
 	}
 	
 	private void showReportPopup()
