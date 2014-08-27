@@ -12,10 +12,10 @@ public class TCP_IP extends ServerConnector {
 		JSONObject jsonObject = ReportDataCollectionAdapter.toJSON(reportDataCollection);
 		HttpResponse httpResponse = HttpProcessor.jsonRequest(SERVER_URL, jsonObject);
 		
-		JSONObject jsoObject_AcknowledgeDataCollection = 
+		JSONObject jsonObject_AcknowledgeDataCollection = 
 				HttpProcessor.httpResponse_to_JSONObject(httpResponse);
 		AcknowledgeDataCollection acknowledgeDataCollection = 
-				AcknowledgeDataCollectionAdapter.fromJSON(jsoObject_AcknowledgeDataCollection);
+				AcknowledgeDataCollectionAdapter.fromJSON(jsonObject_AcknowledgeDataCollection);
 		
 		return acknowledgeDataCollection;
 	}
