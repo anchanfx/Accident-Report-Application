@@ -50,8 +50,6 @@ public class MainActivity extends Activity {
 		initializeVariables();
 		initializeGUIComponents();
 		createReportPopup();
-		
-		updatePosition(mAccidentData.getPosition());
 	}
 	
 	private void initializeVariables() {

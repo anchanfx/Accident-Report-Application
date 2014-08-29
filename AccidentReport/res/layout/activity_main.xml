@@ -21,7 +21,8 @@
         android:textStyle="bold"
         android:layout_alignBottom="@+id/txtview_longitude"
         android:layout_alignRight="@+id/txtview_title"
-        android:layout_toRightOf="@+id/txtview_longitude" />
+        android:layout_toRightOf="@+id/txtview_longitude"
+        android:text="@string/position_not_yet_received" />
 
     <TextView
         android:id="@+id/txtview_show_latitude"
@@ -30,7 +31,8 @@
         android:textStyle="bold"
         android:layout_alignBottom="@+id/txtview_latitude"
         android:layout_alignLeft="@+id/txtview_show_longitude"
-        android:layout_alignRight="@+id/txtview_show_longitude" />
+        android:layout_alignRight="@+id/txtview_show_longitude"
+        android:text="@string/position_not_yet_received" />
 
     <TextView
         android:id="@+id/txtview_latitude"
