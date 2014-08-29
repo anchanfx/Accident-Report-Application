@@ -19,7 +19,7 @@ import org.json.JSONObject;
 
 public class HttpProcessor {
 	
-	public static HttpResponse jsonRequest(String URL, JSONObject jsonObject) {	
+	public static HttpResponse jsonRequest(String URL, JSONObject jsonObject) throws ApplicationException {	
 		HttpClient httpClient = new DefaultHttpClient();
    	    HttpPost httpPost = new HttpPost(URL);
 		HttpResponse httpResponse = null;
@@ -33,9 +33,9 @@ public class HttpProcessor {
    			
    			httpResponse = httpClient.execute(httpPost);
    	    } catch (ClientProtocolException e) {
-   	    	
+   	    	e.printStackTrace();
    	    } catch (IOException e) {
-   	    	
+   	    	throw new UserErrorException(UserErrorException.NO_CONNECTION);
    	    }
    	    
    	    return httpResponse;

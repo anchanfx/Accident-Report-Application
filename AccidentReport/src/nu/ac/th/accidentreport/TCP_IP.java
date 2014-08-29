@@ -8,7 +8,7 @@ public class TCP_IP extends ServerConnector {
 			"http://nuaccrepo.mywebcommunity.org/ReportServer/reportAccident.php";
 	
 	@Override
-	public AcknowledgeDataCollection sendReport(ReportDataCollection reportDataCollection) {
+	public AcknowledgeDataCollection sendReport(ReportDataCollection reportDataCollection) throws ApplicationException {
 		JSONObject jsonObject = ReportDataCollectionAdapter.toJSON(reportDataCollection);
 		HttpResponse httpResponse = HttpProcessor.jsonRequest(SERVER_URL, jsonObject);
 		

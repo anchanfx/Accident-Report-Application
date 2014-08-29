@@ -65,6 +65,7 @@ public class MainActivity extends Activity {
 		txtViewLatitude = (TextView)findViewById(R.id.txtview_show_latitude);
 		btnReport = (Button)findViewById(R.id.btn_report);
 		btnReport.setOnClickListener(btnReportListener);
+		btnReport.setEnabled(false);
 		btnAddInfo = (Button)findViewById(R.id.btn_fill_additional_info);
 		btnAddInfo.setOnClickListener(btnAddInfoListener);
 	}
@@ -73,31 +74,33 @@ public class MainActivity extends Activity {
 		mLocatorListener = new LocatorListener() {
 			@Override
 			public void onLocationUpdated(Position position) {
-				updatePosition(position);
-				alertOnUpdatePosition();
+				onPositionReceived(position);
 			}
 		};
 		
 		mReportTaskListener = new ReportTaskListener() {
 			@Override
-			public void onReportSent(AcknowledgeDataCollection acknowledgeDataCollection) {
-				txtViewReportMessage.setText(acknowledgeDataCollection.getAcknowledgeInfo().getMessage());
+			public void onAcknowledgeReceived(AcknowledgeDataCollection acknowledgeDataCollection) {
+				updateAcknowledgement(acknowledgeDataCollection);
+			}
+
+			@Override
+			public void onCaughtException(ApplicationException exception) {
+				handleReportException(exception);
 			}
 		};
 		
 		btnClosePopupListener = new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				pwindoReport.dismiss();
-				txtViewReportMessage.setText(R.string.msg_sending_data);
+				closePopup();
 			}
 		};
 		
 		btnReportListener = new OnClickListener() {	
 			@Override
 			public void onClick(View v) {
-				showReportPopup();
-				sendReport();
+				reportAccident();
 			}
 		};
 		
@@ -109,8 +112,7 @@ public class MainActivity extends Activity {
 		};
 	}
 	
-	private void createReportPopup()
-	{
+	private void createReportPopup() {
 		LayoutInflater inflater = (LayoutInflater)MainActivity
 				.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		viewReport = inflater.inflate(R.layout.popup_report, (ViewGroup)findViewById(R.id.layout_report));
@@ -122,28 +124,50 @@ public class MainActivity extends Activity {
 		btnClosePopup.setOnClickListener(btnClosePopupListener);
 	}
 	
-	private void updatePosition(Position position)
-	{
+	private void onPositionReceived(Position position) {
+		updatePosition(position);
+		btnReport.setEnabled(true);
+		alertOnUpdatePosition();
+	}
+	
+	private void updatePosition(Position position) {
 		txtViewLongitude.setText(String.valueOf(position.getLongitude()));
 		txtViewLatitude.setText(String.valueOf(position.getLatitude()));
 		mAccidentData.setPosition(position);
 	}
 	
-	private void alertOnUpdatePosition()
-	{
+	private void alertOnUpdatePosition() {
 		Toast.makeText(getApplicationContext(), R.string.position_updated, 
 				   Toast.LENGTH_SHORT).show();
 	}
 	
-	private void showReportPopup()
-	{
+	private void reportAccident() {
+			showReportPopup();
+			sendReport();
+	}
+	
+	private void showReportPopup() {
+		txtViewReportMessage.setText(R.string.msg_sending_data);
 		pwindoReport.showAtLocation(viewReport, Gravity.CENTER, 0, 0);
 	}
 	
 	private void sendReport() {
 		mReportDataCollection.setAccidentData(mAccidentData);
 		mReportTask = new ReportTask(new TCP_IP(), mReportTaskListener);
+		
 		mReportTask.execute(mReportDataCollection);
+	}
+	
+	private void updateAcknowledgement(AcknowledgeDataCollection acknowledgeDataCollection) {
+		txtViewReportMessage.setText(acknowledgeDataCollection.getAcknowledgeInfo().getMessage());
+	}
+	
+	private void handleReportException(ApplicationException exception) {
+		txtViewReportMessage.setText(exception.getStringId());
+	}
+	
+	private void closePopup() {
+		pwindoReport.dismiss();
 	}
 	
 	private void startAdditionalInfoActivity() {

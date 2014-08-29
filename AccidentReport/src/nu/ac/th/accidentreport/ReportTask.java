@@ -5,25 +5,36 @@ import android.os.AsyncTask;
 public class ReportTask extends AsyncTask<ReportDataCollection, Void, AcknowledgeDataCollection> {
 	private ServerConnector mServerConnector;
 	private ReportTaskListener mReportTaskListener;
+	private ApplicationException caughtException;
 	
 	public ReportTask(ServerConnector serverConnector,
 						ReportTaskListener reportTaskListener) {
 		super();
 		mServerConnector = serverConnector;
 		mReportTaskListener = reportTaskListener;
+		caughtException = null;
 	}
 
 	@Override
 	protected AcknowledgeDataCollection doInBackground(ReportDataCollection... reportDataCollections) {
 		AcknowledgeDataCollection acknowledgeDataCollection = null;
 		
-		acknowledgeDataCollection = mServerConnector.sendReport(reportDataCollections[0]);
+		try {
+			acknowledgeDataCollection = mServerConnector.sendReport(reportDataCollections[0]);
+		} catch (ApplicationException e) {
+			caughtException = e;
+		}
 
 		return acknowledgeDataCollection;
 	}
 	
 	@Override
 	protected void onPostExecute(AcknowledgeDataCollection acknowledgeDataCollection) {
-		mReportTaskListener.onReportSent(acknowledgeDataCollection);
+		
+		if(caughtException != null) {
+			mReportTaskListener.onCaughtException(caughtException);
+		} else {
+			mReportTaskListener.onAcknowledgeReceived(acknowledgeDataCollection);
+		}
 	}
 }

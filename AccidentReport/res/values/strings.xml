@@ -7,10 +7,11 @@
     
     <string name="title_app">Accident Report Application</string>
     <string name="title_detail">Your position received from GPS</string>
-    <string name="position_not_yet_received">Position not yet received!</string>
+    <string name="position_not_yet_received">Position not yet received</string>
     <string name="longitude">Longitude : </string>
     <string name="latitude">Latitude : </string>
     <string name="position_updated">You position is updated</string>
+    <string name="alert_report_without_position">Can\'t Report because your position is not yet received</string>
     <string name="btn_fill_aditional">Fill Additional Info</string>
     <string name="btn_report">Report</string>
     
