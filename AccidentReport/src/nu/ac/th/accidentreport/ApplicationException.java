@@ -23,5 +23,5 @@ public class ApplicationException extends Exception {
 
 	public void setStringId(int stringId) {
 		this.stringId = stringId;
-	}	
+	}
 }

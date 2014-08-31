@@ -33,15 +33,15 @@ public class HttpProcessor {
    			
    			httpResponse = httpClient.execute(httpPost);
    	    } catch (ClientProtocolException e) {
-   	    	e.printStackTrace();
+   	    	throw new ApplicationException();
    	    } catch (IOException e) {
-   	    	throw new UserErrorException(UserErrorException.NO_CONNECTION);
+   	    	throw new ServerErrorException(ServerErrorException.NO_CONNECTION);
    	    }
    	    
    	    return httpResponse;
 	}
 	
-	public static JSONObject httpResponse_to_JSONObject(HttpResponse httpResponse) {
+	public static JSONObject httpResponse_to_JSONObject(HttpResponse httpResponse) throws ApplicationException {
 		String jsonString = "";
 		JSONObject jsonObject = null;	
 		
@@ -49,11 +49,11 @@ public class HttpProcessor {
 			jsonString = EntityUtils.toString(httpResponse.getEntity());
 			jsonObject = new JSONObject(jsonString);
 		} catch (ParseException e) {			
-			e.printStackTrace();
+			throw new ApplicationException();
 		} catch (IOException e) {			
-			e.printStackTrace();
+			throw new ApplicationException();
 		} catch (JSONException e) {			
-			e.printStackTrace();
+			throw new ServerErrorException(ServerErrorException.NO_RESPOND);
 		}
 			
 		return jsonObject;
