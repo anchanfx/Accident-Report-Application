@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 public class AcknowledgeDataCollectionAdapter {
 
-	public static AcknowledgeDataCollection fromJSON(JSONObject jsonObject) {
+	public static AcknowledgeDataCollection fromJSON(JSONObject jsonObject) throws ApplicationException {
 		AcknowledgeDataCollection acknowledgeDataCollection = null;
 		AcknowledgeInfo acknowledgeInfo = null;
 		
@@ -17,6 +17,8 @@ public class AcknowledgeDataCollectionAdapter {
 					jsonObject_AcknowledgeInfo.getString(JSONKeys.MESSAGE));
 		} catch (JSONException e) {
 			e.printStackTrace();
+		} catch (NullPointerException e) {
+			throw new ServerErrorException(ServerErrorException.NO_RESPOND);
 		}
 		
 		acknowledgeDataCollection = new AcknowledgeDataCollection(acknowledgeInfo);

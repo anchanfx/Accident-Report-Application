@@ -14,6 +14,7 @@ public class TCP_IP extends ServerConnector {
 		
 		JSONObject jsonObject_AcknowledgeDataCollection = 
 				HttpProcessor.httpResponse_to_JSONObject(httpResponse);
+
 		AcknowledgeDataCollection acknowledgeDataCollection = 
 				AcknowledgeDataCollectionAdapter.fromJSON(jsonObject_AcknowledgeDataCollection);
 		
