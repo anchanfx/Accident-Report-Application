@@ -1,19 +1,15 @@
 package nu.ac.th.accidentreport;
 
-public abstract class Locator {	
+public abstract class Locator implements ILocator {
 	private LocatorListener mLocatorListener;
 	protected Position mPosition;
 	
-	protected Locator(LocatorListener locatorListener, Position position) {
+	public Locator(LocatorListener locatorListener, Position position) {
 		mLocatorListener = locatorListener;
 		mPosition = position;
 	}
 	
-	protected void updateLocation()
-	{
-		mLocatorListener.onLocationUpdated(mPosition);
+	protected void updatePosition(Position position) {
+		mLocatorListener.onLocationUpdated(position);
 	}
-	
-	public abstract void startLocatePosition();
-	public abstract void stopLocatePosition();
 }

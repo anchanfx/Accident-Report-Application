@@ -3,11 +3,11 @@ package nu.ac.th.accidentreport;
 import android.os.AsyncTask;
 
 public class ReportTask extends AsyncTask<ReportDataCollection, Void, AcknowledgeDataCollection> {
-	private ServerConnector mServerConnector;
+	private IServerConnector mServerConnector;
 	private ReportTaskListener mReportTaskListener;
 	private ApplicationException caughtException;
 	
-	public ReportTask(ServerConnector serverConnector,
+	public ReportTask(IServerConnector serverConnector,
 						ReportTaskListener reportTaskListener) {
 		super();
 		mServerConnector = serverConnector;

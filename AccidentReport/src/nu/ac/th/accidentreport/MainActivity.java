@@ -18,7 +18,7 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 	public static final int ACTIVITY_CODE = 0;
 	
-	private Locator mLocator;
+	private ILocator mILocator;
 	private LocatorListener mLocatorListener;
 	private ReportTask mReportTask;
 	private ReportTaskListener mReportTaskListener;
@@ -53,7 +53,7 @@ public class MainActivity extends Activity {
 	}
 	
 	private void initializeVariables() {
-		mLocator = new GPS(mLocatorListener, new Position(), getApplicationContext());
+		mILocator = new GPS(mLocatorListener, new Position(), getApplicationContext());
 		mReportTask = null;
 		
 		mReportDataCollection = new ReportDataCollection();
@@ -179,13 +179,13 @@ public class MainActivity extends Activity {
 	
 	@Override
 	protected void onPause() {
-		mLocator.stopLocatePosition();
+		mILocator.stopLocatePosition();
 		super.onPause();
 	}
 
 	@Override
 	protected void onResume() {
-		mLocator.startLocatePosition();
+		mILocator.startLocatePosition();
 		super.onResume();
 	}
 

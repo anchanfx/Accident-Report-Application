@@ -34,7 +34,7 @@ public class GPS extends Locator implements LocationListener {
 	public void onLocationChanged(Location location) {
 		mPosition.setLatitude(location.getLatitude());
 		mPosition.setLongitude(location.getLongitude());
-		updateLocation();
+		updatePosition(mPosition);
 	}
 
 	@Override
