@@ -4,9 +4,9 @@ public abstract class Locator {
 	private LocatorListener mLocatorListener;
 	protected Position mPosition;
 	
-	protected Locator(LocatorListener locatorListener) {
+	protected Locator(LocatorListener locatorListener, Position position) {
 		mLocatorListener = locatorListener;
-		mPosition = new Position(0.0, 0.0);
+		mPosition = position;
 	}
 	
 	protected void updateLocation()

@@ -53,7 +53,7 @@ public class MainActivity extends Activity {
 	}
 	
 	private void initializeVariables() {
-		mLocator = new GPS(mLocatorListener, getApplicationContext());
+		mLocator = new GPS(mLocatorListener, new Position(), getApplicationContext());
 		mReportTask = null;
 		
 		mReportDataCollection = new ReportDataCollection();

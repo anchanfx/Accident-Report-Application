@@ -12,8 +12,8 @@ public class GPS extends Locator implements LocationListener {
 	
 	private LocationManager mLocationManager;
 	
-	public GPS(LocatorListener locatorListener, Context context) {
-		super(locatorListener);
+	public GPS(LocatorListener locatorListener, Position position, Context context) {
+		super(locatorListener, position);
 		mLocationManager = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
 	}
 

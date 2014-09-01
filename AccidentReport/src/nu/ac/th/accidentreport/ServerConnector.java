@@ -1,5 +1,5 @@
 package nu.ac.th.accidentreport;
 
-public abstract class ServerConnector {	
-	public abstract AcknowledgeDataCollection sendReport(ReportDataCollection reportDataCollection) throws ApplicationException;
+public interface ServerConnector {	
+	public  AcknowledgeDataCollection sendReport(ReportDataCollection reportDataCollection) throws ApplicationException;
 }

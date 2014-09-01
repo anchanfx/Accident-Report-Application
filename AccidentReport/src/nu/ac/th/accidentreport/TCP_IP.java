@@ -3,7 +3,7 @@ package nu.ac.th.accidentreport;
 import org.apache.http.HttpResponse;
 import org.json.JSONObject;
 
-public class TCP_IP extends ServerConnector {
+public class TCP_IP implements ServerConnector {
 	private static final String SERVER_URL = 
 			"http://nuaccrepo.mywebcommunity.org/ReportServer/reportAccident.php";
 	
