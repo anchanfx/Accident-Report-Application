@@ -9,14 +9,14 @@ public class TCP_IP implements IServerConnector {
 	
 	@Override
 	public AcknowledgeDataCollection sendReport(ReportDataCollection reportDataCollection) throws ApplicationException {
-		JSONObject jsonObject = ReportDataCollectionAdapter.toJSON(reportDataCollection);
+		JSONObject jsonObject = ReportDataCollectionConverter.toJSON(reportDataCollection);
 		HttpResponse httpResponse = HttpProcessor.jsonRequest(SERVER_URL, jsonObject);
 		
 		JSONObject jsonObject_AcknowledgeDataCollection = 
 				HttpProcessor.httpResponse_to_JSONObject(httpResponse);
 
 		AcknowledgeDataCollection acknowledgeDataCollection = 
-				AcknowledgeDataCollectionAdapter.fromJSON(jsonObject_AcknowledgeDataCollection);
+				AcknowledgeDataCollectionConverter.fromJSON(jsonObject_AcknowledgeDataCollection);
 		
 		return acknowledgeDataCollection;
 	}

@@ -9,7 +9,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ReportDataCollectionAdapter {
+public class ReportDataCollectionConverter {
 	
 	/* Doesn't convert Date into JSON Object because of using server time instead
 	 * So Date is not sent to server

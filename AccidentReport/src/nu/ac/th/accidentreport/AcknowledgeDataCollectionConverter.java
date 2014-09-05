@@ -3,7 +3,7 @@ package nu.ac.th.accidentreport;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class AcknowledgeDataCollectionAdapter {
+public class AcknowledgeDataCollectionConverter {
 
 	public static AcknowledgeDataCollection fromJSON(JSONObject jsonObject) throws ApplicationException  {
 		AcknowledgeDataCollection acknowledgeDataCollection = null;
