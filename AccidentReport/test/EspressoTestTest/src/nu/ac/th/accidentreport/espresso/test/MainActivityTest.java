@@ -1,4 +1,4 @@
-package nu.ac.th.accidentreport.test;
+package nu.ac.th.accidentreport.espresso.test;
 
 import nu.ac.th.accidentreport.MainActivity;
 import nu.ac.th.accidentreport.R;

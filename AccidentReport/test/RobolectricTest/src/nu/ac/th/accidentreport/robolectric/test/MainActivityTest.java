@@ -1,15 +1,22 @@
-package nu.ac.th.accidentreport.test;
+package nu.ac.th.accidentreport.robolectric.test;
 
-import nu.ac.th.accidentreport.*;
+// Import from project under test
+import nu.ac.th.accidentreport.MainActivity;
 
+// Import from Robolectric
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
+
+// Import from Mockito
+import org.mockito.Mockito;
+
+// Import from JUNIT
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import static org.junit.Assert.*;
 
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
 
 @RunWith(RobolectricTestRunner.class)
 public class MainActivityTest{
@@ -23,10 +30,18 @@ public class MainActivityTest{
     }
 
     @Test
-    public void shouldHaveHappySmiles() throws Exception 
+    public void shouldAlwaysPass() throws Exception 
     {
         //String hello = this.activity.getString(R.string.hello_world);
         //assertThat(hello, equalTo("Hello world!"));
     	assertThat("AAAA", equalTo("AAAA"));
+    }
+    
+    @Test
+    public void shouldAlwaysFail() throws Exception 
+    {
+        //String hello = this.activity.getString(R.string.hello_world);
+        //assertThat(hello, equalTo("Hello world!"));
+    	fail();
     }
 }
