@@ -34,14 +34,12 @@ public class MainActivityTest{
     {
         //String hello = this.activity.getString(R.string.hello_world);
         //assertThat(hello, equalTo("Hello world!"));
-    	assertThat("AAAA", equalTo("AAAA"));
+    	assertThat("TEST", equalTo("TEST"));
     }
     
     @Test
     public void shouldAlwaysFail() throws Exception 
     {
-        //String hello = this.activity.getString(R.string.hello_world);
-        //assertThat(hello, equalTo("Hello world!"));
     	fail();
     }
 }
