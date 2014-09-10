@@ -1,45 +1,72 @@
 package nu.ac.th.accidentreport.robolectric.test;
 
-// Import from project under test
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.*;
+import static org.robolectric.Robolectric.buildActivity;
+import static org.robolectric.Robolectric.shadowOf;
+import nu.ac.th.accidentreport.FillAdditionalInfoActivity;
 import nu.ac.th.accidentreport.MainActivity;
+import nu.ac.th.accidentreport.R;
 
-// Import from Robolectric
-import org.robolectric.Robolectric;
-import org.robolectric.RobolectricTestRunner;
-
-// Import from Mockito
-import org.mockito.Mockito;
-
-// Import from JUNIT
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import static org.junit.Assert.*;
+import org.robolectric.RobolectricTestRunner;
+import org.robolectric.shadows.ShadowActivity;
+import org.robolectric.util.ActivityController;
 
-import static org.hamcrest.CoreMatchers.equalTo;
+import android.content.Intent;
 
 @RunWith(RobolectricTestRunner.class)
 public class MainActivityTest{
 
-    MainActivity activity;
-
+	private final ActivityController<MainActivity> controller = 
+			buildActivity(MainActivity.class);
+	private MainActivity mainActivity;
+	
     @Before
     public void setup()
     {
-        this.activity = Robolectric.buildActivity(MainActivity.class).create().get();
-    }
-
-    @Test
-    public void shouldAlwaysPass() throws Exception 
-    {
-        //String hello = this.activity.getString(R.string.hello_world);
-        //assertThat(hello, equalTo("Hello world!"));
-    	assertThat("TEST", equalTo("TEST"));
+        this.mainActivity = controller.create().get();
     }
     
     @Test
-    public void shouldAlwaysFail() throws Exception 
+    public void clickFillAdditionalInfo_shouldStartFillAdditionalInfoActivity() throws Exception 
     {
-    	fail();
+    	 ShadowActivity shadowActivity = shadowOf(mainActivity);
+    	 mainActivity.findViewById(R.id.btn_fill_additional_info).performClick();
+    	 
+    	 String expected = new Intent(mainActivity, FillAdditionalInfoActivity.class).getComponent().getClassName();
+    	 String actual = shadowActivity.getNextStartedActivity().getComponent().getClassName();
+    
+         assertThat(expected, equalTo(actual));
+    }
+    
+    @Test
+    public void whenGPSIsNotYetReceived_reportButtonShouldBeDisable() throws Exception
+    {
+    	boolean expected = false;
+    	boolean actual = mainActivity.findViewById(R.id.btn_report).isEnabled();
+    	
+    	
+    	assertThat(expected, equalTo(actual));
+    }
+    
+    @Test
+    public void whenGPSIsReceived_reportButtonShouldBeEnable() throws Exception
+    {
+    	// TODO
+    }
+    
+    @Test
+    public void reportButtonShouldBeEnable_whenGPSIsReceived() throws Exception
+    {
+    	// TODO
+    }
+    
+    @Test
+    public void clickReport_shouldStartReportPopup() throws Exception
+    {
+    	// TODO
     }
 }

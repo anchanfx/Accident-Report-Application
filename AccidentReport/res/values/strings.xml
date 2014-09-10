@@ -5,7 +5,7 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="msg_sending_data">Sending the data to server&#8230;</string>
     
-    <string name="title_app">Accident Report Application</string>
+    <string name="main_activity_title">Accident Report Application</string>
     <string name="title_detail">Your position received from GPS</string>
     <string name="position_not_yet_received">Position not yet received</string>
     <string name="longitude">Longitude : </string>
@@ -15,6 +15,7 @@
     <string name="btn_fill_aditional">Fill Additional Info</string>
     <string name="btn_report">Report</string>
     
+    <string name="filladditionalinfo_activity_title">Additional Info</string>
     <string name="accident_type">Accident Type : </string>
     <string name="injured">Injured : </string>
     <string name="dead">Dead : </string>

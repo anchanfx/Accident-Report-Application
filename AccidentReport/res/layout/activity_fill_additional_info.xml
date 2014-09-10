@@ -9,10 +9,10 @@
         android:id="@+id/layout_fill_additional_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/txtview_filladditionalinfo_activity_title"
         android:layout_centerHorizontal="true"
         android:layout_margin="30dp"
-        android:layout_marginTop="121dp"
+        android:layout_marginTop="16dp"
         android:background="#ffffff"
         android:orientation="vertical" >
 
@@ -54,10 +54,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/txtview_accident_type"
-            android:ems="10" >
-
-            <requestFocus />
-        </EditText>
+            android:ems="10" />
 
         <EditText
             android:id="@+id/edittxt_input_injured"
@@ -124,7 +121,16 @@
             android:layout_alignTop="@+id/txtview_block_road"
             android:layout_toRightOf="@+id/txtview_block_road"
             android:text="@string/yes" />
-
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txtview_filladditionalinfo_activity_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:text="@string/filladditionalinfo_activity_title"
+        android:textSize="23sp" />
 
 </RelativeLayout>
