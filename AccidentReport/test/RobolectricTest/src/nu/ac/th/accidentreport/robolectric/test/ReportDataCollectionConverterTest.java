@@ -28,8 +28,6 @@ public class ReportDataCollectionConverterTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		
-		
 		reportDataCollection = new ReportDataCollection(testAccidentData);
 	}
 

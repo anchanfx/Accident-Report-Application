@@ -57,7 +57,7 @@ public class FillAdditionalInfoActivity extends Activity {
 		chkBoxTrafficBlocked = (CheckBox)findViewById(R.id.chkbox_traffic_blocked_yes);
 		edtTxtMessage = (EditText)findViewById(R.id.edittxt_message);
 		
-		btnSubmit = (Button)findViewById(R.id.btn_submit_add_info);
+		btnSubmit = (Button)findViewById(R.id.btn_submit_additional_info);
 		btnSubmit.setOnClickListener(btnSubmitListener);
 	}
 	

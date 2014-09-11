@@ -16,13 +16,12 @@ import org.robolectric.RobolectricTestRunner;
 @RunWith(RobolectricTestRunner.class)
 public class AcknowledgeDataCollectionConverterTest {;
 	
-	//private final AcknowledgeDataCollectionConverter converter = new AcknowledgeDataCollectionConverter();
 	private final AcknowledgeInfo testAcknowledgeInfo = new AcknowledgeInfo("TEST MESSAGE");
 	
 	private JSONObject jsonObj;
 
     @Before
-    public void setupAcknowledgeDataCollectionJSON() throws Exception {
+    public void setUp() throws Exception {
     	// "{ "Accident" : { "Message" : "Test_Message" } }"
     	String jsonString = "{ \"" + JSONKeys.JSON_OBJECT_ACKNOWLEDGE_INFO + 
     							"\" : { \"" + JSONKeys.MESSAGE +
