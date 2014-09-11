@@ -20,8 +20,7 @@ import android.content.Intent;
 @RunWith(RobolectricTestRunner.class)
 public class MainActivityTest{
 
-	private final ActivityController<MainActivity> controller = 
-			buildActivity(MainActivity.class);
+	private final ActivityController<MainActivity> controller = buildActivity(MainActivity.class);
 	private MainActivity mainActivity;
 	
     @Before

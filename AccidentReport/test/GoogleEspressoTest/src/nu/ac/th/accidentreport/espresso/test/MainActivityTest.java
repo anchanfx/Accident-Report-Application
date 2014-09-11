@@ -40,7 +40,12 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 	public void test_ClickFillAdditionalInfo_ShouldStartFillAdditionalInfoActivity() {
 		onView(withId(R.id.btn_fill_additional_info))
 			.perform(click());
-		onView(withId(R.id.txtview_accident_type))
+		onView(withId(R.id.layout_fill_additional_info))
 			.check(matches(isDisplayed()));
+	}
+	
+	public void test_WhenGPSIsReceived_ReportButtonShouldBeEnable() {
+		
+		// TODO
 	}
 }
