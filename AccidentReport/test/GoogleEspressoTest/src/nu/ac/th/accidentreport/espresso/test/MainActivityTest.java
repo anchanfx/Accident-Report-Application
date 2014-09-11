@@ -42,7 +42,11 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 	public void test_WhenGPSIsReceived_ReportButtonShouldBeEnable() {
 		// TODO
 	}
-
+	
+	public void test_ClickReport_ShouldStartReportPopup() {
+		// TODO
+	}
+	
 	public void test_ClickFillAdditionalInfo_ShouldStartFillAdditionalInfoActivity() {
 		onView(withId(R.id.btn_fill_additional_info))
 			.perform(click());
@@ -138,5 +142,9 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 		
 		onView(withId(R.id.edittxt_message))
 			.check(matches(not(withText("TEST MESSAGE"))));
+	}
+	
+	public void test_ChangeScreenOrientation_DataShouldNotLost() {
+		// TODO
 	}
 }

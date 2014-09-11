@@ -58,12 +58,6 @@ public class MainActivityTest{
     }
     
     @Test
-    public void reportButtonShouldBeEnable_whenGPSIsReceived() throws Exception
-    {
-    	// TODO
-    }
-    
-    @Test
     public void clickReport_shouldStartReportPopup() throws Exception
     {
     	// TODO
