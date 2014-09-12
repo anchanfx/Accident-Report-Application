@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>GoogleEspressoTest</name>
+	<name>AccidentReport_GoogleEspressoTest</name>
 	<comment></comment>
 	<projects>
 		<project>AccidentReport</project>
