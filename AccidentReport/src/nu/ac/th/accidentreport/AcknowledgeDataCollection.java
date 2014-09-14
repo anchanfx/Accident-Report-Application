@@ -2,19 +2,19 @@ package nu.ac.th.accidentreport;
 
 public class AcknowledgeDataCollection {
 
-	private AcknowledgeInfo mAcknowledgeInfo;
+	private AcknowledgeData mAcknowledgeData;
 	
 	
 	public AcknowledgeDataCollection() {
-		this(new AcknowledgeInfo());
+		this(new AcknowledgeData());
 	}
 
-	public AcknowledgeDataCollection(AcknowledgeInfo acknowledgeInfo) {
+	public AcknowledgeDataCollection(AcknowledgeData acknowledgeInfo) {
 		super();
-		mAcknowledgeInfo = acknowledgeInfo;
+		mAcknowledgeData = acknowledgeInfo;
 	}
 	
-	public AcknowledgeInfo getAcknowledgeInfo() {
-		return mAcknowledgeInfo;
+	public AcknowledgeData getAcknowledgeData() {
+		return mAcknowledgeData;
 	}
 }

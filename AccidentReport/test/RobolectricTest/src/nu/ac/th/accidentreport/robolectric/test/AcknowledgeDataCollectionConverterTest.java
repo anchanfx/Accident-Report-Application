@@ -4,7 +4,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import nu.ac.th.accidentreport.AcknowledgeDataCollection;
 import nu.ac.th.accidentreport.AcknowledgeDataCollectionConverter;
-import nu.ac.th.accidentreport.AcknowledgeInfo;
+import nu.ac.th.accidentreport.AcknowledgeData;
 import nu.ac.th.accidentreport.JSONKeys;
 
 import org.json.JSONObject;
@@ -16,14 +16,14 @@ import org.robolectric.RobolectricTestRunner;
 @RunWith(RobolectricTestRunner.class)
 public class AcknowledgeDataCollectionConverterTest {;
 	
-	private final AcknowledgeInfo testAcknowledgeInfo = new AcknowledgeInfo("TEST MESSAGE");
+	private final AcknowledgeData testAcknowledgeInfo = new AcknowledgeData("TEST MESSAGE");
 	
 	private JSONObject jsonObj;
 
     @Before
     public void setUp() throws Exception {
     	// "{ "Accident" : { "Message" : "Test_Message" } }"
-    	String jsonString = "{ \"" + JSONKeys.JSON_OBJECT_ACKNOWLEDGE_INFO + 
+    	String jsonString = "{ \"" + JSONKeys.JSON_OBJECT_ACKNOWLEDGE_DATA + 
     							"\" : { \"" + JSONKeys.MESSAGE +
     							"\" : \"" + testAcknowledgeInfo.getMessage() + "\"} }";
     	jsonObj =  new JSONObject(jsonString);
@@ -45,7 +45,7 @@ public class AcknowledgeDataCollectionConverterTest {;
 		
 		AcknowledgeDataCollection expected = new AcknowledgeDataCollection(testAcknowledgeInfo);
 		
-		assertThat(actual.getAcknowledgeInfo().getMessage(), 
-					equalTo(expected.getAcknowledgeInfo().getMessage()));
+		assertThat(actual.getAcknowledgeData().getMessage(), 
+					equalTo(expected.getAcknowledgeData().getMessage()));
 	}
 }

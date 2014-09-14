@@ -159,7 +159,7 @@ public class MainActivity extends Activity {
 	}
 	
 	private void updateAcknowledgement(AcknowledgeDataCollection acknowledgeDataCollection) {
-		txtViewReportMessage.setText(acknowledgeDataCollection.getAcknowledgeInfo().getMessage());
+		txtViewReportMessage.setText(acknowledgeDataCollection.getAcknowledgeData().getMessage());
 	}
 	
 	private void handleReportException(ApplicationException exception) {

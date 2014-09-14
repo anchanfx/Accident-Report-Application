@@ -16,5 +16,5 @@ public class JSONKeys {
 	public static final String JSON_OBJECT_DATE = "Date";
 		public static final String TIME = "Time";
 	
-	public static final String JSON_OBJECT_ACKNOWLEDGE_INFO = "AcknowledgeInfo";
+	public static final String JSON_OBJECT_ACKNOWLEDGE_DATA = "AcknowledgeData";
 }

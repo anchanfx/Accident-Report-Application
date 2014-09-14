@@ -7,13 +7,13 @@ public class AcknowledgeDataCollectionConverter {
 
 	public static AcknowledgeDataCollection fromJSON(JSONObject jsonObject) throws ApplicationException  {
 		AcknowledgeDataCollection acknowledgeDataCollection = null;
-		AcknowledgeInfo acknowledgeInfo = null;
+		AcknowledgeData acknowledgeData = null;
 		
 		try {
 			JSONObject jsonObject_AcknowledgeInfo = 
-					jsonObject.getJSONObject(JSONKeys.JSON_OBJECT_ACKNOWLEDGE_INFO);
+					jsonObject.getJSONObject(JSONKeys.JSON_OBJECT_ACKNOWLEDGE_DATA);
 			
-			acknowledgeInfo = new AcknowledgeInfo(
+			acknowledgeData = new AcknowledgeData(
 					jsonObject_AcknowledgeInfo.getString(JSONKeys.MESSAGE));
 		} catch (JSONException e) {
 			throw new ApplicationException();
@@ -21,7 +21,7 @@ public class AcknowledgeDataCollectionConverter {
 			throw new ApplicationException();
 		}
 		
-		acknowledgeDataCollection = new AcknowledgeDataCollection(acknowledgeInfo);
+		acknowledgeDataCollection = new AcknowledgeDataCollection(acknowledgeData);
 		
 		return acknowledgeDataCollection;
 	}
