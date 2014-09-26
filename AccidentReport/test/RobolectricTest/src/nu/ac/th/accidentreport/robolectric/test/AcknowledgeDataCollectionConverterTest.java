@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 
 @RunWith(RobolectricTestRunner.class)
-public class AcknowledgeDataCollectionConverterTest {;
+public class AcknowledgeDataCollectionConverterTest {
 	
 	private final AcknowledgeData testAcknowledgeInfo = new AcknowledgeData("TEST MESSAGE");
 	
@@ -22,7 +22,7 @@ public class AcknowledgeDataCollectionConverterTest {;
 
     @Before
     public void setUp() throws Exception {
-    	// "{ "Accident" : { "Message" : "Test_Message" } }"
+    	// "{ "AcknowledgeData" : { "Message" : "Test_Message" } }"
     	String jsonString = "{ \"" + JSONKeys.JSON_OBJECT_ACKNOWLEDGE_DATA + 
     							"\" : { \"" + JSONKeys.MESSAGE +
     							"\" : \"" + testAcknowledgeInfo.getMessage() + "\"} }";
