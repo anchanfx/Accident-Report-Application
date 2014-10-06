@@ -153,6 +153,7 @@ public class MainActivity extends Activity {
 	
 	private void sendReport() {
 		mReportDataCollection.setAccidentData(mAccidentData);
+		mReportDataCollection.setDate(ApplicationTime.newDateInstance());
 		mReportTask = new ReportTask(new TCP_IP(), mReportTaskListener);
 		
 		mReportTask.execute(mReportDataCollection);
