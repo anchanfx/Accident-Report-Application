@@ -4,6 +4,7 @@ import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -16,8 +17,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
+	private static final String BROADCAST_POLLING_MESSAGE
+		= "nu.ac.th.accidentreport.android.action.broadcast.pollingmessage";
 	public static final int ACTIVITY_CODE = 0;
 	
+	private MessagePollingService_BroadcastReceiver messagePollingService_BroadcastReceiver;
 	private ILocator mILocator;
 	private LocatorListener mLocatorListener;
 	private ReportTask mReportTask;
@@ -50,6 +54,7 @@ public class MainActivity extends Activity {
 		initializeVariables();
 		initializeGUIComponents();
 		createReportPopup();
+		startMainApplicationServices();
 	}
 	
 	private void initializeVariables() {
@@ -202,5 +207,15 @@ public class MainActivity extends Activity {
 	
 	private void updateAdditionalInfo(AdditionalInfo additionalInfo) {
 		mAccidentData.setAdditionalInfo(additionalInfo);
+	}
+	
+	private void startMainApplicationServices() {
+		if(!ServiceUtility.isMyServiceRunning(MessagePollingService.class, getApplicationContext())) {
+			IntentFilter intentFilter = new IntentFilter(BROADCAST_POLLING_MESSAGE);
+			registerReceiver(messagePollingService_BroadcastReceiver , intentFilter);
+			
+			Intent intent = new Intent(BROADCAST_POLLING_MESSAGE);  
+	        sendBroadcast(intent);
+		}
 	}
 }

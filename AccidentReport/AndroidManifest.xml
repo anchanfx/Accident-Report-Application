@@ -7,17 +7,30 @@
     <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="18" />
+    
 	<uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
+        <service android:name=".MessagePollingService"></service>
+        
+        <receiver android:name=".MessagePollingService_BroadcastReceiver" >  
+		    <intent-filter >  
+		        <action android:name="android.intent.action.BOOT_COMPLETED" />
+		        <action android:name="nu.ac.th.accidentreport.android.action.broadcast.pollingmessage"/>
+		    </intent-filter>  
+		</receiver> 
+		
         <activity
             android:name="nu.ac.th.accidentreport.MainActivity"
             android:label="@string/title_activity_main" >
