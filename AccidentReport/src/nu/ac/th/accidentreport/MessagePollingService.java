@@ -55,10 +55,10 @@ public class MessagePollingService extends Service {
 		
 		ApplicationNotificationParameter param
 			= new ApplicationNotificationParameter(this,
-					"Incoming Message", 
-					"Message", 
+					"You Receive A Message", 
+					"Your Message", 
 					message,
-					"",
+					message,
 					startActivityPendingIntent, 
 					INCOMING_MESSAGE);
 		ApplicationNotification.sendNotification(param);
