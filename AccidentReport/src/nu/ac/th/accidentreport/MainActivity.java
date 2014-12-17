@@ -57,6 +57,7 @@ public class MainActivity extends Activity {
 		mReportTask = null;
 		
 		mReportDataCollection = new ReportDataCollection();
+		mReportDataCollection.setIMEI(IMEI.getDeviceIMEI(this));
 		mAccidentData = new AccidentData();
 	}
 	

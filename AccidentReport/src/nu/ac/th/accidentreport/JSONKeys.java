@@ -7,6 +7,7 @@ public class JSONKeys {
 	
 	public static final String LATITUDE 			= "Latitude";
 	public static final String LONGITUDE 			= "Longitude";
+	public static final String IMEI 				= "IMEI";
 	public static final String ACCIDENT_TYPE 		= "AccidentType";
 	public static final String AMOUNT_OF_INJURED 	= "AmountOfInjured";
 	public static final String AMOUNT_OF_DEAD 		= "AmountOfDead";

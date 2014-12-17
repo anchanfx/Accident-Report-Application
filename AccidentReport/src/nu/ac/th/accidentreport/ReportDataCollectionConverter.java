@@ -28,7 +28,7 @@ public class ReportDataCollectionConverter {
 					accidentReportData.getPosition().getLatitude());
 			jsonObject_Position.put(JSONKeys.LONGITUDE, 
 					accidentReportData.getPosition().getLongitude());
-			
+	
 			/*AdditionalInfo*/
 			jsonObject_AdditionalInfo.put(JSONKeys.ACCIDENT_TYPE, 
 					accidentReportData.getAdditionalInfo().getAccidentType());
@@ -43,7 +43,8 @@ public class ReportDataCollectionConverter {
 			
 			
 			jsonObject_AccidentData.put(JSONKeys.JSON_OBJECT_POSITION, jsonObject_Position);
-			jsonObject_AccidentData.put(JSONKeys.JSON_OBJECT_ADDITIONAL_INFO, jsonObject_AdditionalInfo);			
+			jsonObject_AccidentData.put(JSONKeys.JSON_OBJECT_ADDITIONAL_INFO, jsonObject_AdditionalInfo);	
+			holder.put(JSONKeys.IMEI, reportDataCollection.getIMEI());
 			holder.put(JSONKeys.JSON_OBJECT_ACCIDENT_DATA,jsonObject_AccidentData);
 			holder.put(JSONKeys.DATE_TIME, timeStampInJavaToPhp(date.getTime()));
 		} catch (JSONException e) {
