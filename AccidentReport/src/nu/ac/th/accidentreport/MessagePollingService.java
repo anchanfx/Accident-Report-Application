@@ -28,7 +28,7 @@ public class MessagePollingService extends Service {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		messagePollingRequestData = new MessagePollingRequestData("1234");//IMEI.getDeviceIMEI(this));
+		messagePollingRequestData = new MessagePollingRequestData(IMEI.getDeviceIMEI(this));
 		broadcaster = LocalBroadcastManager.getInstance(this);
 		threadListener = new PollMessageListener() {
 			@Override
